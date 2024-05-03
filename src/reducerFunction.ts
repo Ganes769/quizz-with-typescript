@@ -7,7 +7,7 @@ export const initsatate: QuestionType = {
   answer: null,
   index: 0,
 };
-export function quizzReducer(state = initsatate, action: Action): QuestionType {
+export function quizzReducer(state = initsatate, action: Action) {
   switch (action.type) {
     case ActionType.DATA_RECIEVE: {
       return {
@@ -16,13 +16,19 @@ export function quizzReducer(state = initsatate, action: Action): QuestionType {
         status: "active",
       };
     }
+
     case ActionType.START: {
       return {
         ...state,
         status: "ready",
       };
     }
-
+    case ActionType.DATA_FAILED: {
+      return {
+        ...state,
+        status: "error",
+      };
+    }
     case ActionType.NEWANSER: {
       const question = state.questions[state.index];
       return {
@@ -44,6 +50,6 @@ export function quizzReducer(state = initsatate, action: Action): QuestionType {
       };
     }
     default:
-      throw new Error("error");
+      return state;
   }
 }

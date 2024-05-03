@@ -7,6 +7,9 @@ interface numQuestion {
 }
 
 export default function StartScreen({ numQuestion, dispatch }: numQuestion) {
+  function handlestart() {
+    dispatch({ type: ActionType.START });
+  }
   return (
     <>
       <h2 className="text-white uppercase text-md ">Welcome To React Quizz</h2>
@@ -14,7 +17,7 @@ export default function StartScreen({ numQuestion, dispatch }: numQuestion) {
         {numQuestion} Question to check your react skill
       </h3>
       <button
-        onClick={() => dispatch({ type: ActionType.START })}
+        onClick={handlestart}
         className="mt-4 bg-gray-700 text-white px-5 py-2 rounded-full"
       >
         Lets Start

@@ -4,6 +4,7 @@ export enum ActionType {
   NEXT_QUESTION = "NEXT",
   NEWANSER = "NEW_ANSWER",
   FINISH = "FINISH",
+  DATA_FAILED = "DATA_FAILED",
 }
 
 export interface Questions {
@@ -14,7 +15,7 @@ export interface Questions {
 }
 export interface QuestionType {
   questions: Questions[];
-  answer?: number | string | null;
+  answer?: number | null;
   status: string;
   index: number;
   points: number;
@@ -37,5 +38,8 @@ export interface Next {
 export interface Finish {
   type: ActionType.FINISH;
 }
+export interface DataFail {
+  type: ActionType.DATA_FAILED;
+}
 
-export type Action = DataRecieve | Start | Next | NewAnswer | Finish;
+export type Action = DataRecieve | Start | Next | NewAnswer | Finish | DataFail;

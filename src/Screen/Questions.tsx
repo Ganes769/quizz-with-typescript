@@ -61,7 +61,9 @@ export default function QuestionsComponent({
                     ? "bg-green-500 transition-all move-animation translate-x-2 "
                     : "bg-gray-500"
                   : ""
-              }  text-white cursor-pointer bg-gray-800 rounded-full text-center block h-12 w-2/3 border-gray-300 border p-7cursor-pointer `}
+              } ${
+                selecteditem ? "cursor-not-allowed" : ""
+              } text-white cursor-pointer bg-gray-800 rounded-full text-center block h-12 w-2/3 border-gray-300 border p-7cursor-pointer `}
             >
               {option}
             </button>

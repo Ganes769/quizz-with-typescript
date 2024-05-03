@@ -9,6 +9,7 @@ import { initsatate, quizzReducer } from "./reducerFunction";
 import FinishScreen from "./Screen/FinishScreen";
 import Progress from "./Screen/Progress";
 import QuestionsComponent from "./Screen/Questions";
+import ErrorComponent from "./Screen/ErrorScreen";
 
 function App() {
   useEffect(function () {
@@ -36,7 +37,6 @@ function App() {
       {status === "ready" && (
         <>
           <Progress numQuestions={numQuestion} index={index} points={points} />
-
           <QuestionsComponent
             numQuestion={numQuestion}
             answer={+(answer || "")}
@@ -49,6 +49,7 @@ function App() {
       {status === "finish" && (
         <FinishScreen dispatch={dispatch} points={points} />
       )}
+      {status == "loading" && <ErrorComponent />}
     </div>
   );
 }
