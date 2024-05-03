@@ -40,9 +40,6 @@ export default function QuestionsComponent({
 
     [index]
   );
-
-  console.log(questionindex);
-
   return (
     <>
       {!questionindex ? (
