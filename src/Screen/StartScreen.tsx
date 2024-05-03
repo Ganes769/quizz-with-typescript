@@ -1,8 +1,8 @@
-import { ActionType } from "../Types/Reducertype";
+import { Action, ActionType } from "../Types/Reducertype";
 
 interface numQuestion {
   numQuestion: number;
-  dispatch: Function;
+  dispatch: React.Dispatch<Action>;
   status: string;
 }
 

@@ -4,7 +4,6 @@ import axios from "axios";
 import { ActionType } from "./Types/Reducertype";
 import StartScreen from "./Screen/StartScreen";
 import Header from "./Screen/Hedaer";
-
 import { initsatate, quizzReducer } from "./reducerFunction";
 import FinishScreen from "./Screen/FinishScreen";
 import Progress from "./Screen/Progress";
@@ -36,7 +35,6 @@ function App() {
       {status === "ready" && (
         <>
           <Progress numQuestions={numQuestion} index={index} points={points} />
-
           <QuestionsComponent
             answer={+(answer || "")}
             index={index}

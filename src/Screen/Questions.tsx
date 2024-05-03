@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { ActionType, Questions } from "../Types/Reducertype";
+import { Action, ActionType, Questions } from "../Types/Reducertype";
 
 interface QuestionsProps {
-  dispatch: Function;
+  dispatch: React.Dispatch<Action>;
   answer: number;
   index: number;
   question: Questions[];

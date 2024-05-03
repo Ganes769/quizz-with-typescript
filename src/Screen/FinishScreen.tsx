@@ -1,9 +1,11 @@
+import { Action } from "../Types/Reducertype";
+
 interface Props {
   points: number;
-  dispatch: Function;
+  dispatch: React.Dispatch<Action>;
 }
 
-export default function FinishScreen({ points, dispatch }: Props) {
+export default function FinishScreen({ points }: Props) {
   return (
     <>
       <p className="m-4 text-white">
