@@ -7,7 +7,6 @@ interface QuestionsProps {
   index: number;
   question: Questions[];
 }
-
 export default function QuestionsComponent({
   dispatch,
   index,
