@@ -1,5 +1,6 @@
+import { createContext } from "react";
 import { Action, ActionType, QuestionType } from "./Types/Reducertype";
-
+const QuizzContext = createContext<null>(null);
 export const initsatate: QuestionType = {
   questions: [],
   status: "loading",
@@ -7,6 +8,7 @@ export const initsatate: QuestionType = {
   answer: null,
   index: 0,
 };
+
 export function quizzReducer(state = initsatate, action: Action) {
   switch (action.type) {
     case ActionType.DATA_RECIEVE: {
@@ -31,17 +33,27 @@ export function quizzReducer(state = initsatate, action: Action) {
     }
     case ActionType.NEWANSER: {
       const question = state.questions[state.index];
-      return {
-        ...state,
-        answer: action.payload,
-        points:
-          action.payload == question.correctOption
-            ? state.points + question.points
-            : state.points,
-      };
+      if (
+        question &&
+        typeof action.payload == "number" &&
+        typeof question.correctOption == "number"
+      ) {
+        return {
+          ...state,
+          answer: action.payload,
+          points:
+            action.payload == question.correctOption
+              ? state.points + question.points
+              : state.points,
+        };
+      }
+      return state;
     }
     case ActionType.NEXT_QUESTION: {
-      return { ...state, index: state.index + 1, answer: null };
+      if (state.index < state.questions.length - 1) {
+        return { ...state, index: state.index + 1, answer: null };
+      }
+      return state;
     }
     case ActionType.FINISH: {
       return {
